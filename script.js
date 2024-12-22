@@ -1,19 +1,18 @@
-JavaScript (script.js)
-```
-const formOrder = document.getElementById('form-order');
-const kirim = document.getElementById('kirim');
+function sendToWhatsapp(){
+  let number = "+6283151636921"
+    
+  let nama = document.getElementById('nama').value;
+  let Config = document.getElementById('config').value;
+  let Protocol = document.getElementById('protocol').value;
+  let Server = document.getElementById('server').value;
+  
+  var url = "https:wa.me/" + number + "?teks="
+  
+  + "Nama : " +nama+ "%0a"
+  + "Config : " +config+ "%0a"
+  + "Server : " +server+ "%0a"
+  + "Protocol : " +protocol+ "%0a%0a";
 
-kirim.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  const nama = document.getElementById('nama').value;
-  const nomorHp = document.getElementById('nomor-hp').value;
-  const produk = document.getElementById('produk').value;
-  const jumlah = document.getElementById('jumlah').value;
-
-  const pesan = `Halo, saya ingin memesan ${produk} sebanyak ${jumlah} buah. Nama saya ${nama}. Nomor HP saya ${nomorHp}.`;
-
-  const urlWa = `(https://wa.me/6283151636921){encodeURIComponent(pesan)}`;
-
-  window.open(urlWa, '_blank');
-});
+  
+  window.open(url, `_blank`).focus();
+}
